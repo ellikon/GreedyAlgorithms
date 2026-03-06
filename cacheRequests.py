@@ -1,3 +1,5 @@
+import sys
+
 capacity = 3
 requests = [1, 2, 3, 1, 1, 3, 4, 5, 2, 1]
 
@@ -96,6 +98,34 @@ def OPTFF(capacity, requests):
 
     return misses
 
-print(f"FIFO\t: {fifo(capacity, requests)}")
-print(f"LRU\t: {lru(capacity, requests)}")
-print(f"OPTFF\t: {OPTFF(capacity, requests)}")
+def read_in(filename):
+    k = None
+    m = None
+    requests = []
+
+    with open(filename, 'r') as file:
+        params = file.readline().split()
+
+        if len(params) != 2:
+            raise ValueError("First line must contain 2 integers")
+
+        k = int(params[0])
+        m = int(params[1])
+
+        if k < 1:
+            raise ValueError("k must be >= 1")
+        if m < 0:
+            raise ValueError("m cannot be negative")
+
+        requests = [int(x)for x in file.readline().split()]
+
+    if len(requests) != m:
+        raise ValueError(f"Expected {m} requests but found {len(requests)}")
+
+    return k,m,requests
+
+
+
+    print(f"FIFO\t: {fifo(capacity, requests)}")
+    print(f"LRU\t: {lru(capacity, requests)}")
+    print(f"OPTFF\t: {OPTFF(capacity, requests)}")
