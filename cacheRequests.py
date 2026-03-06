@@ -11,6 +11,7 @@ def fifo(capacity, requests):
         if len(cache) < capacity and id not in cache:
             cache.append(id)
             fifo.append(id)
+            fifo_misses += 1
             continue
 
         if id in cache:
@@ -33,6 +34,7 @@ def lru(capacity, requests):
         if len(cache) < capacity and id not in cache:
             cache.append(id)
             lru.append(id)
+            lru_misses += 1
             continue
 
         if id in cache:
