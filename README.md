@@ -19,7 +19,7 @@ The output file will have the result for FIFO, LRU, OPTFF each on its own line a
 ## Question 1: Empirical Comparison
 | Input File | k | m | FIFO | LRU | OPTFF |
 |------------|---|---|------|-----|-------|
-| Q1File1    | 4 |50 |   42  |  44  |  47  |
+| Q1File1    | 4 |50 |   42  |  44  |  27  |
 | Q1File2    | 5 |60 |   58  |  58  |  32  |
 | Q1File3    | 6 |70 |   37  |  31  |  21  |
 
