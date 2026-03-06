@@ -6,7 +6,7 @@ fifo = []
 fifo_misses = 0
 
 for id in requests:
-    if len(cache) < 3:
+    if len(cache) < capacity:
         cache.append(id)
         fifo.append(id)
         continue
@@ -27,7 +27,7 @@ lru = []
 lru_misses = 0
 
 for id in requests:
-    if len(cache) < 3:
+    if len(cache) < capacity:
         cache.append(id)
         lru.append(id)
         continue
