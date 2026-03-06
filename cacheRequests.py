@@ -25,6 +25,7 @@ def fifo(capacity, requests):
             fifo_misses += 1
     return fifo_misses
 
+
 def lru(capacity, requests):
     cache = []
     lru = []
