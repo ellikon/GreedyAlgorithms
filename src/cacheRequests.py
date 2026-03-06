@@ -1,8 +1,5 @@
 import sys
 
-capacity = 3
-requests = [1, 2, 3, 1, 1, 3, 4, 5, 2, 1]
-
 
 def fifo(capacity, requests):
     cache = []
@@ -125,7 +122,19 @@ def read_in(filename):
     return k,m,requests
 
 
+def main():
+    if len(sys.argv) != 2:
+        print("Wrong input. Use: python3 cacheRequests.py <filename>")
+        sys.exit(1)
 
-    print(f"FIFO\t: {fifo(capacity, requests)}")
-    print(f"LRU\t: {lru(capacity, requests)}")
-    print(f"OPTFF\t: {OPTFF(capacity, requests)}")
+    filename = sys.argv[1]
+
+    try:
+        k,m,requests = read_in(filename)
+    except Exception as e:
+        print(f"Error: {e}")
+        sys.exit(1)
+
+    print(f"FIFO\t: {fifo(k, requests)}")
+    print(f"LRU\t: {lru(k, requests)}")
+    print(f"OPTFF\t: {OPTFF(k, requests)}")
