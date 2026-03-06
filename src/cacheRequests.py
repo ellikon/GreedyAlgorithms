@@ -138,3 +138,10 @@ def main():
     print(f"FIFO\t: {fifo(k, requests)}")
     print(f"LRU\t: {lru(k, requests)}")
     print(f"OPTFF\t: {OPTFF(k, requests)}")
+
+    with open(f"{filename[:-3]}.out", 'w') as file:
+        file.write(f"FIFO\t: {fifo(k, requests)}\nLRU\t\t: {lru(k, requests)}\nOPTFF\t: {OPTFF(k, requests)}")
+
+
+if __name__ == "__main__":
+    main()
